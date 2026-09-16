@@ -1,0 +1,497 @@
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Brand Red Palette */
+  --color-primary: #DC2626;
+  --color-primary-hover: #B91C1C;
+  --color-primary-dark: #991B1B;
+  --color-primary-light: #FEE2E2;
+  --color-primary-tint: #FEF2F2;
+  --color-primary-glow: rgba(220, 38, 38, 0.25);
+
+  /* Dark Slate Accents */
+  --color-dark: #0F172A;
+  --color-dark-muted: #334155;
+  --color-text-main: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+
+  /* Tech Status Colors */
+  --color-success: #10B981;
+  --color-success-bg: #ECFDF5;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FFFBEB;
+  --color-info: #0284C7;
+  --color-info-bg: #F0F9FF;
+
+  /* Surfaces & Backgrounds */
+  --bg-white: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-alt: #F1F5F9;
+  --bg-red-tint: #FFF5F5;
+
+  /* Borders & Shadows */
+  --border-subtle: #E2E8F0;
+  --border-focus: #FCA5A5;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 30px -10px rgba(220, 38, 38, 0.12), 0 8px 10px -4px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 0 0 1px rgba(226, 232, 240, 0.8), 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 0 0 1px rgba(220, 38, 38, 0.3), 0 12px 30px -4px rgba(220, 38, 38, 0.12);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 36px;
+  --radius-full: 9999px;
+
+  --max-width: 1280px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-main);
+  color: var(--color-text-main);
+  background-color: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  opacity: 1;
+  animation: pageFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scroll Progress Bar at top */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(220, 38, 38, 0.08);
+  z-index: 9999;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 50%, #B91C1C 100%);
+  width: 0%;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+}
+
+/* Section Boundary Glow Line */
+.section-divider-glow {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(226, 232, 240, 0.8) 30%, rgba(220, 38, 38, 0.35) 50%, rgba(226, 232, 240, 0.8) 70%, transparent 100%);
+  position: relative;
+  margin: 0;
+}
+
+/* Section Header Shared */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 56px auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.section-tag:hover {
+  transform: scale(1.03);
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-dark);
+  letter-spacing: -0.5px;
+}
+
+.section-desc {
+  font-size: 17px;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   HIGH-TECH ALTERNATING SECTION BACKGROUND UTILITIES
+   ========================================================================== */
+
+.bg-s-hero {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F8 50%, #F8FAFC 100%);
+}
+
+/* 1. Tech Crisp White with Digital Micro-Dot Matrix (Sáng) */
+.bg-tech-white, .bg-s-white {
+  background-color: #FFFFFF;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(220, 38, 38, 0.035) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.035) 0%, transparent 40%),
+    radial-gradient(#CBD5E1 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
+  position: relative;
+}
+
+/* 2. Tech Slate with Cyber Circuit Grid Pattern (Tối hơn, tương phản xen kẽ) */
+.bg-tech-subtle, .bg-s-subtle {
+  background-color: #F1F5F9;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.045) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+    linear-gradient(to right, rgba(203, 213, 225, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(203, 213, 225, 0.55) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  position: relative;
+}
+
+/* 3. Tech Red Tint with Warm Soft Ambient Matrix */
+.bg-tech-tint, .bg-s-red-tint {
+  background: linear-gradient(180deg, #FFF7F7 0%, #FFFFFF 50%, #FFF9F9 100%);
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.05) 0%, transparent 40%),
+    radial-gradient(rgba(239, 68, 68, 0.08) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 24px 24px;
+  position: relative;
+}
+
+/* 4. High-Tech Dark Cyber Space (Red Cyber Theme) */
+.bg-tech-dark, .bg-s-dark {
+  background: linear-gradient(135deg, #1A0407 0%, #140205 60%, #26060B 100%);
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px;
+  color: #F8FAFC;
+  position: relative;
+}
+
+/* Primary Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary-dark) 100%);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.45);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: #FFFFFF;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-subtle);
+  border-color: #CBD5E1;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   PAGE & SECTION TRANSITIONS (Scroll-Reveal & Micro-Animations)
+   ========================================================================== */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered Delays for Child Cards */
+.delay-100 { transition-delay: 0.1s !important; }
+.delay-200 { transition-delay: 0.2s !important; }
+.delay-300 { transition-delay: 0.3s !important; }
+.delay-400 { transition-delay: 0.4s !important; }
+.delay-500 { transition-delay: 0.5s !important; }
+.delay-600 { transition-delay: 0.6s !important; }
+
+/* Floating Actions Bar */
+.floating-actions {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+  animation: floatIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: none;
+  position: relative;
+}
+
+.floating-btn:hover {
+  transform: scale(1.12) translateY(-2px);
+}
+
+.floating-btn.zalo {
+  background: #0068FF;
+  color: white;
+}
+
+.floating-btn.call {
+  background: #10B981;
+  color: white;
+}
+
+.floating-btn.top {
+  background: #FFFFFF;
+  color: var(--color-dark);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Keyframe Animations */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .section {
+    padding: 70px 0;
+  }
+  .section-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section {
+    padding: 56px 0;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+  .section-header {
+    margin-bottom: 36px;
+  }
+  .floating-actions {
+    right: 16px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .section-title {
+    font-size: 23px;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* PCB High-Tech Bright Cyber Crimson Red Theme */
+.pcb-tech-section {
+  background-color: #88131A !important;
+  background: radial-gradient(ellipse at 50% 10%, #DC2626 0%, #A81822 45%, #6B0E14 100%) !important;
+  color: #FFFFFF !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.pcb-tech-section .section-title {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.pcb-tech-section .section-desc {
+  color: #FEE2E2 !important;
+  opacity: 0.95;
+}
+
+.pcb-tech-section .section-tag {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+
