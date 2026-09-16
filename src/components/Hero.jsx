@@ -55,7 +55,7 @@ export default function Hero({ onSelectPlan }) {
           padding-top: 90px;
           padding-bottom: 40px;
           position: relative;
-          background-image: url('/3e2fcfcb-4c94-4612-8d29-4d69881ea699.png');
+          background-image: url('/hero-mascot.webp');
           background-size: cover;
           background-position: center right;
           background-repeat: no-repeat;

@@ -8,7 +8,7 @@ const CASES_DATA = [
   {
     id: 1,
     accent: '#DC2626',
-    image: '/case-ecommerce.jpg',
+    image: '/case-ecommerce.webp',
     title: 'Vá Crash SDK Thanh Toán',
     desc: 'Khắc phục lỗi văng app trên Android 14+, nâng cấp SDK và phát hành bản vá sau 24h.',
     results: [
@@ -20,7 +20,7 @@ const CASES_DATA = [
   {
     id: 2,
     accent: '#0284C7',
-    image: '/case-booking.jpg',
+    image: '/case-booking.webp',
     title: 'Duy Trì Chuẩn Apple Store',
     desc: 'Cấu hình Privacy Manifest, cập nhật giá dịch vụ và duyệt ngay lần gửi đầu.',
     results: [
@@ -32,7 +32,7 @@ const CASES_DATA = [
   {
     id: 3,
     accent: '#10B981',
-    image: '/case-inventory.jpg',
+    image: '/case-inventory.webp',
     title: 'Bảo Trì App Kiểm Kê Nội Bộ',
     desc: 'Kiểm tra định kỳ hàng tháng, xử lý token bảo mật và gia hạn Certificate.',
     results: [
@@ -153,7 +153,7 @@ export default function CaseStudies() {
                     className="case-thumb-img" 
                     loading="lazy"
                     onError={(e) => {
-                      e.currentTarget.src = '/prob-4-crash-monitor.jpg'
+                      e.currentTarget.src = '/case-ecommerce.webp'
                     }}
                   />
                   <div className="case-img-overlay" />

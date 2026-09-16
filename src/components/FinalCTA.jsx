@@ -88,7 +88,7 @@ export default function FinalCTA({ onPhoneClick }) {
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: url('/92dbf0d598d661d6d91c99176b1380aa.jpg');
+          background-image: url('/final-cta-bg.webp');
           background-size: cover;
           background-position: center center;
           background-repeat: no-repeat;

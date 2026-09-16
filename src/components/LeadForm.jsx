@@ -152,7 +152,7 @@ export default function LeadForm({ selectedPlan, setSelectedPlan, showToast }) {
           <div className="lead-form-mascot-col reveal-left delay-100">
             <div className="mascot-img-wrapper">
               <img 
-                src="/a925737c-5b36-48c5-b465-86a6bc709147.png" 
+                src="/mascot-support.webp" 
                 alt="DUDI Tech Mascot App Support" 
                 className="mascot-full-img"
               />
