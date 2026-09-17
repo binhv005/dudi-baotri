@@ -20,7 +20,7 @@ const CASES_DATA = [
   {
     id: 2,
     accent: '#0284C7',
-    image: '/case-booking.webp',
+    image: 'https://images.unsplash.com/photo-1526406915894-7bcd65f60845?auto=format&fit=crop&w=800&q=80',
     title: 'Duy Trì Chuẩn Apple Store',
     desc: 'Cấu hình Privacy Manifest, cập nhật giá dịch vụ và duyệt ngay lần gửi đầu.',
     results: [

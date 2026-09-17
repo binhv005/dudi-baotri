@@ -30,7 +30,7 @@ export default function Deliverables() {
     {
       icon: Smartphone,
       tag: 'Giám sát 24/7',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80',
       title: 'Theo dõi & Báo cáo Crash',
       desc: 'Giám sát tỷ lệ crash qua Crashlytics, phát hiện sớm nguyên nhân gây lỗi.'
     },
@@ -44,7 +44,7 @@ export default function Deliverables() {
     {
       icon: UploadCloud,
       tag: 'Store Readiness',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=800&q=80',
       title: 'Hỗ trợ phát hành lên Store',
       desc: 'Build bản phát hành (AAB / IPA), ký chứng chỉ và gửi duyệt Store.'
     },
@@ -113,75 +113,16 @@ export default function Deliverables() {
   }
 
   return (
-    <section className="section deliverables-section-compact pcb-tech-section" id="dau-ra">
-      {/* High-Tech Circuit Board / Schematic Vector Background (Red Neon Cyber Edition) */}
-      <div className="pcb-bg-canvas" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 620"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          className="pcb-svg-root"
-        >
-          <defs>
-            <linearGradient id="traceGradRedPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#EF4444" stopOpacity="0.25" />
-              <stop offset="50%" stopColor="#F87171" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.5" />
-            </linearGradient>
-            
-            <linearGradient id="traceGradRedGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#DC2626" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#EF4444" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#FECACA" stopOpacity="0.3" />
-            </linearGradient>
-
-            <linearGradient id="chipBodyGradRed" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2E080D" />
-              <stop offset="100%" stopColor="#170306" />
-            </linearGradient>
-
-            <polygon id="hexUnitRed" points="0,-24 20.78,-12 20.78,12 0,24 -20.78,12 -20.78,-12" fill="none" stroke="#DC2626" strokeWidth="1.2" strokeOpacity="0.45" />
-          </defs>
-
-          {/* Hexagon Clusters */}
-          <g className="hex-group" opacity="0.6">
-            <use href="#hexUnitRed" x="220" y="70" />
-            <use href="#hexUnitRed" x="262" y="94" />
-            <use href="#hexUnitRed" x="262" y="142" />
-            <use href="#hexUnitRed" x="220" y="166" />
-          </g>
-
-          <g className="hex-group" opacity="0.5">
-            <use href="#hexUnitRed" x="1240" y="480" />
-            <use href="#hexUnitRed" x="1282" y="504" />
-            <use href="#hexUnitRed" x="1324" y="480" />
-          </g>
-
-          {/* Red Glowing Traces */}
-          <path d="M 20 80 L 140 80 L 180 120 L 260 120" stroke="#7F1D1D" strokeWidth="1.5" fill="none" opacity="0.8" />
-          <circle cx="260" cy="120" r="3" fill="#EF4444" opacity="0.9" />
-          
-          <path d="M 20 160 L 280 160 L 340 100 L 600 100 L 660 160 L 700 160" stroke="url(#traceGradRedPrimary)" strokeWidth="2" fill="none" />
-          <circle cx="700" cy="160" r="4" fill="#FFFFFF" stroke="#DC2626" strokeWidth="1.5" />
-          
-          <path d="M 40 380 L 520 380" stroke="url(#traceGradRedGlow)" strokeWidth="2" fill="none" opacity="0.85" />
-          <circle cx="520" cy="380" r="4" fill="#EF4444" stroke="#160306" strokeWidth="1.5" />
-
-          <path d="M 780 180 L 980 180 L 1040 120 L 1380 120" stroke="#7F1D1D" strokeWidth="1.6" fill="none" opacity="0.75" />
-          <circle cx="1380" cy="120" r="3.5" fill="#EF4444" opacity="0.9" />
-        </svg>
-      </div>
-
-      <div className="container pcb-tech-content">
+    <section className="section deliverables-section-compact" id="dau-ra">
+      <div className="container">
         {/* Compact Section Header */}
         <div className="section-header reveal-up deliverables-header-compact">
-          <div className="section-tag deliverables-tech-tag">
+          <div className="section-tag">
             <CheckCircle2 size={13} />
             <span>Cam Kết Bàn Giao</span>
           </div>
-          <h2 className="section-title deliverables-tech-title">Đầu Ra Cụ Thể Trong Từng Gói Bảo Trì</h2>
-          <p className="section-desc deliverables-tech-desc">
+          <h2 className="section-title">Đầu Ra Cụ Thể Trong Từng Gói Bảo Trì</h2>
+          <p className="section-desc">
             Cam kết các hạng mục đầu ra minh bạch cùng hình ảnh thực tế bàn giao cho ứng dụng.
           </p>
         </div>
@@ -210,25 +151,25 @@ export default function Deliverables() {
             </div>
           </div>
 
-          {/* Scrollable Multi-Card Track */}
+          {/* Slider Horizontal Track */}
           <div className="deliverables-track" ref={scrollRef}>
             {outputs.map((item, idx) => {
               const Icon = item.icon
               return (
                 <div key={idx} className="deliverable-slide-card">
-                  {/* Embedded Visual Image */}
+                  {/* Photo Banner with Tag */}
                   <div className="slide-card-img-wrap">
                     <img 
                       src={item.image} 
                       alt={item.title} 
                       className="slide-card-img" 
-                      loading="lazy" 
+                      loading="lazy"
                     />
                     <div className="slide-card-img-overlay" />
                     <span className="slide-card-tag">{item.tag}</span>
                   </div>
 
-                  {/* Card Info */}
+                  {/* Body Content */}
                   <div className="slide-card-body">
                     <div className="slide-card-header">
                       <div className="slide-icon-box">
@@ -244,8 +185,8 @@ export default function Deliverables() {
           </div>
         </div>
 
-        {/* Compact Requirements from client box */}
-        <div className="client-inputs-box reveal-scale delay-200">
+        {/* Requirements Strip (What customer provides) */}
+        <div className="client-inputs-box reveal-up delay-200">
           <div className="inputs-box-header">
             <div className="inputs-header-left">
               <Key size={15} className="inputs-icon" />
@@ -270,67 +211,20 @@ export default function Deliverables() {
 
       <style>{`
         .deliverables-section-compact {
-          position: relative !important;
-          background-color: #88131A !important;
-          background: radial-gradient(ellipse at 50% 10%, #DC2626 0%, #A81822 45%, #6B0E14 100%) !important;
-          overflow: hidden !important;
-          padding: 34px 0 38px 0 !important;
-          border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-        }
-        .pcb-bg-canvas {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-          overflow: hidden;
-          opacity: 0.85;
-        }
-        .pcb-svg-root {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-        .pcb-tech-content {
           position: relative;
-          z-index: 2;
+          background: transparent;
+          overflow: hidden;
+          padding: 40px 0 46px 0;
         }
+
         .deliverables-header-compact {
-          margin-bottom: 14px;
-        }
-        
-        .deliverables-tech-tag {
-          background: rgba(220, 38, 38, 0.28) !important;
-          color: #FECACA !important;
-          border: 1px solid rgba(239, 68, 68, 0.5) !important;
-          box-shadow: 0 0 14px rgba(220, 38, 38, 0.35) !important;
-          padding: 4px 12px !important;
-          font-size: 11.5px !important;
-          margin-bottom: 8px !important;
-        }
-
-        .deliverables-tech-title {
-          color: #FFFFFF !important;
-          font-size: 26px !important;
-          font-weight: 800 !important;
-          letter-spacing: -0.4px;
-          margin-bottom: 6px !important;
-          text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-        }
-
-        .deliverables-tech-desc {
-          color: #FECACA !important;
-          font-size: 13px !important;
-          margin-bottom: 0 !important;
-          opacity: 0.9;
+          margin-bottom: 18px;
         }
 
         /* Slider Wrapper */
         .deliverables-slider-wrapper {
           position: relative;
-          margin-bottom: 16px;
+          margin-bottom: 18px;
         }
 
         .slider-controls-bar {
@@ -347,11 +241,9 @@ export default function Deliverables() {
         }
 
         .slider-arrow-btn {
-          width: 30px;
-          height: 30px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
-          background: rgba(45, 8, 14, 0.9);
-          border: 1px solid rgba(220, 38, 38, 0.4);
           color: #FFFFFF;
           display: flex;
           align-items: center;
@@ -390,25 +282,68 @@ export default function Deliverables() {
           display: none;
         }
 
-        /* Individual Compact Card with High-Contrast Pure White Glass */
+        .slider-arrow-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          color: var(--color-dark);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+        }
+
+        .slider-arrow-btn:hover:not(.disabled) {
+          background: #DC2626;
+          border-color: #DC2626;
+          color: #FFFFFF;
+          transform: scale(1.06);
+        }
+
+        .slider-arrow-btn.disabled {
+          opacity: 0.35;
+          cursor: not-allowed;
+        }
+
+        /* Multi-card Track: Shows 3-4 cards horizontally */
+        .deliverables-track {
+          display: flex;
+          gap: 14px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          padding: 4px 2px 10px 2px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .deliverables-track::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Individual Card */
         .deliverable-slide-card {
           flex: 0 0 calc(33.333% - 10px);
           min-width: 310px;
           max-width: 360px;
           scroll-snap-align: start;
           background: #FFFFFF;
-          border: 1px solid rgba(255, 255, 255, 0.95);
+          border: 1px solid var(--border-subtle);
           border-radius: 14px;
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .deliverable-slide-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45), 0 0 0 2px #DC2626;
+          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(220, 38, 38, 0.3);
         }
 
         .slide-card-img-wrap {

@@ -6,7 +6,6 @@ export default function Problems() {
     {
       id: 1,
       icon: Bug,
-      image: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=600&q=80',
       category: 'Xung Đột Hệ Thống',
       title: 'Lỗi phát sinh sau khi nâng cấp hệ điều hành',
       short: 'Xung đột thư viện, văng ứng dụng, lỗi quyền vị trí & camera trên iOS / Android mới.',
@@ -15,7 +14,6 @@ export default function Problems() {
     {
       id: 2,
       icon: ShieldAlert,
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80',
       category: 'Rủi Ro Store',
       title: 'Cảnh báo gỡ bỏ ứng dụng từ Apple & Google Store',
       short: 'Nguy cơ bị gỡ khỏi Store do không đáp ứng kịp Target SDK & chính sách bảo mật.',
@@ -24,7 +22,6 @@ export default function Problems() {
     {
       id: 3,
       icon: UserX,
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80',
       category: 'Nhân Sự Vận Hành',
       title: 'Phụ thuộc hoặc mất liên lạc với nhân sự lập trình cũ',
       short: 'Mã nguồn bàn giao thiếu tài liệu, không ai chịu trách nhiệm sửa lỗi hay phát hành bản mới.',
@@ -33,7 +30,6 @@ export default function Problems() {
     {
       id: 4,
       icon: AlertOctagon,
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
       category: 'Giám Sát & Log',
       title: 'Không có hệ thống giám sát crash & ghi log tự động',
       short: 'Khách hàng phàn nàn lỗi nhưng không biết xảy ra ở dòng code hay thiết bị nào để sửa.',
@@ -42,7 +38,6 @@ export default function Problems() {
     {
       id: 5,
       icon: DollarSign,
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80',
       category: 'Chi Phí Doanh Nghiệp',
       title: 'Chi phí thuê dev full-time quá tốn kém',
       short: 'Tốn 15 - 25 triệu/tháng duy trì dev trong khi nhu cầu thực tế chỉ cần vài giờ bảo trì định kỳ.',
@@ -51,7 +46,6 @@ export default function Problems() {
     {
       id: 6,
       icon: AlertTriangle,
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80',
       category: 'Uy Tín Thương Hiệu',
       title: 'Rủi ro rớt hạng và mất đánh giá sao trên Store',
       short: 'Nhận bão đánh giá 1 sao do lỗi vặt kéo dài, sụt giảm uy tín và lượt tải tự nhiên.',
@@ -172,19 +166,12 @@ export default function Problems() {
                     <span className="prob-cat-name">{prob.category}</span>
                   </div>
 
-                  {/* Image Banner Covering the entire top half of card */}
-                  <div className="card-img-wrap">
-                    <img 
-                      src={prob.image} 
-                      alt={prob.title} 
-                      className="card-thumb-img" 
-                      loading="lazy"
-                      draggable="false"
-                    />
-                  </div>
-
                   {/* Card Body Content with padding */}
                   <div className="card-body-content">
+                    <div className="prob-icon-large-box">
+                      <Icon size={24} className="prob-large-icon" />
+                    </div>
+
                     <h3 className="prob-title">{prob.title}</h3>
 
                     {/* Short Teaser shown by default */}
@@ -218,7 +205,7 @@ export default function Problems() {
           cursor: grab;
           user-select: none;
           -webkit-user-select: none;
-          scrollbar-width: none; /* Hide scrollbar for clean look */
+          scrollbar-width: none;
           -ms-overflow-style: none;
           mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
           -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
@@ -234,14 +221,14 @@ export default function Problems() {
 
         .scroll-track-inner {
           display: flex;
-          gap: 24px;
+          gap: 22px;
           width: max-content;
           align-items: flex-start;
         }
 
         /* Problem Card Slide */
         .problem-card-slide {
-          width: 350px;
+          width: 320px;
           flex-shrink: 0;
           cursor: pointer;
           padding-top: 14px;
@@ -252,19 +239,19 @@ export default function Problems() {
           background: #FFFFFF;
           border: 1px solid #E2E8F0;
           border-radius: 20px;
-          padding: 0;
+          padding: 24px 20px 20px 20px;
           display: flex;
           flex-direction: column;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           height: auto;
           position: relative;
         }
 
         .problem-card-slide:hover .card-inner-box {
-          border-color: rgba(220, 38, 38, 0.45);
-          box-shadow: 0 18px 40px -8px rgba(220, 38, 38, 0.2), 0 0 0 1px rgba(220, 38, 38, 0.25);
-          transform: translateY(-8px);
+          border-color: rgba(220, 38, 38, 0.4);
+          box-shadow: 0 16px 36px -8px rgba(220, 38, 38, 0.18), 0 0 0 1px rgba(220, 38, 38, 0.2);
+          transform: translateY(-6px);
           background: #FFFFFF;
         }
 
@@ -307,30 +294,31 @@ export default function Problems() {
           color: #FFFFFF;
         }
 
-        /* Image Banner Covering Upper Half of Card */
-        .card-img-wrap {
-          width: 100%;
-          height: 160px;
-          border-radius: 19px 19px 0 0;
-          overflow: hidden;
-          position: relative;
-          background: #F1F5F9;
+        /* Icon Box */
+        .prob-icon-large-box {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          background: #FEF2F2;
+          border: 1px solid #FECACA;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 14px;
+          color: #DC2626;
+          transition: all 0.3s ease;
         }
 
-        .card-thumb-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.45s ease;
-        }
-
-        .problem-card-slide:hover .card-thumb-img {
-          transform: scale(1.08);
+        .problem-card-slide:hover .prob-icon-large-box {
+          background: #DC2626;
+          border-color: #DC2626;
+          color: #FFFFFF;
+          transform: scale(1.06);
+          box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
         }
 
         /* Card Body Content Area */
         .card-body-content {
-          padding: 16px 18px 18px 18px;
           display: flex;
           flex-direction: column;
         }
@@ -381,7 +369,7 @@ export default function Problems() {
 
         @media (max-width: 768px) {
           .problem-card-slide {
-            width: 290px;
+            width: 280px;
           }
         }
       `}</style>

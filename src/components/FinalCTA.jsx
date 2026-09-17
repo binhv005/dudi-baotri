@@ -13,56 +13,58 @@ export default function FinalCTA({ onPhoneClick }) {
 
   return (
     <section className="section final-cta-section" id="lien-he">
-      {/* Sharp Neon Cyber City Background Image */}
-      <div className="final-cta-bg" aria-hidden="true" />
-
-      {/* Balanced Semi-Transparent Tint Overlay (No Blur) */}
-      <div className="final-cta-overlay" aria-hidden="true" />
-
       <div className="container final-cta-container">
         <div className="cta-box-tech reveal-scale">
-          {/* Centered Tag & Title */}
-          <div className="cta-header-center reveal-up delay-100">
-            <div className="cta-tag">
-              <Zap size={14} />
-              <span>Khởi Động Bảo Trì Ngay Hôm Nay</span>
-            </div>
-            <h2 className="cta-heading">
-              Bảo Vệ Ứng Dụng Của Bạn Khỏi Rủi Ro Gián Đoạn &amp; Bị Gỡ Khỏi Store
-            </h2>
-          </div>
+          {/* City Sunset Background Image */}
+          <div className="final-cta-bg" aria-hidden="true" />
 
-          {/* Centered CTA Buttons Area */}
-          <div className="cta-center-actions reveal-up delay-200">
-            <button className="btn-primary cta-action-btn" onClick={scrollToForm}>
-              <span>Gửi ứng dụng để DUDI kiểm tra</span>
-              <ArrowRight size={18} />
-            </button>
+          {/* Balanced Tint Overlay */}
+          <div className="final-cta-overlay" aria-hidden="true" />
 
-            <div className="cta-direct-channels">
-              <span className="channels-label">Hoặc liên hệ kỹ thuật trực tiếp:</span>
-              <div className="channels-row">
-                <button className="channel-pill phone" onClick={onPhoneClick}>
-                  <Phone size={14} />
-                  <span>0909 163 821</span>
-                </button>
-                <button className="channel-pill zalo" onClick={openZalo}>
-                  <MessageCircle size={14} />
-                  <span>Chat Zalo</span>
-                </button>
+          <div className="cta-content-inner">
+            {/* Centered Tag & Title */}
+            <div className="cta-header-center reveal-up delay-100">
+              <div className="cta-tag">
+                <Zap size={14} />
+                <span>Khởi Động Bảo Trì Ngay Hôm Nay</span>
               </div>
+              <h2 className="cta-heading">
+                Bảo Vệ Ứng Dụng Của Bạn Khỏi Rủi Ro Gián Đoạn &amp; Bị Gỡ Khỏi Store
+              </h2>
             </div>
 
-            {/* 2 Perks displayed on the exact same line */}
-            <div className="cta-perks-center">
-              <div className="perk-item">
-                <ShieldCheck size={16} className="text-success" />
-                <span>Không phát sinh chi phí ẩn</span>
+            {/* Centered CTA Buttons Area */}
+            <div className="cta-center-actions reveal-up delay-200">
+              <button className="btn-primary cta-action-btn" onClick={scrollToForm}>
+                <span>Gửi ứng dụng để DUDI kiểm tra</span>
+                <ArrowRight size={18} />
+              </button>
+
+              <div className="cta-direct-channels">
+                <span className="channels-label">Hoặc liên hệ kỹ thuật trực tiếp:</span>
+                <div className="channels-row">
+                  <button className="channel-pill phone" onClick={onPhoneClick}>
+                    <Phone size={14} />
+                    <span>0909 163 821</span>
+                  </button>
+                  <button className="channel-pill zalo" onClick={openZalo}>
+                    <MessageCircle size={14} />
+                    <span>Chat Zalo</span>
+                  </button>
+                </div>
               </div>
-              <span className="perk-divider" aria-hidden="true">•</span>
-              <div className="perk-item">
-                <ShieldCheck size={16} className="text-success" />
-                <span>Khảo sát mã nguồn trước khi ký hợp đồng</span>
+
+              {/* 2 Perks displayed on the exact same line */}
+              <div className="cta-perks-center">
+                <div className="perk-item">
+                  <ShieldCheck size={16} className="text-success" />
+                  <span>Không phát sinh chi phí ẩn</span>
+                </div>
+                <span className="perk-divider" aria-hidden="true">•</span>
+                <div className="perk-item">
+                  <ShieldCheck size={16} className="text-success" />
+                  <span>Khảo sát mã nguồn trước khi ký hợp đồng</span>
+                </div>
               </div>
             </div>
           </div>
@@ -71,68 +73,78 @@ export default function FinalCTA({ onPhoneClick }) {
 
       <style>{`
         .final-cta-section {
-          min-height: 100vh;
+          padding: 60px 24px 80px;
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: 40px 0;
           box-sizing: border-box;
-          overflow: hidden;
+          background: transparent;
         }
 
-        /* Sharp Wireframe City Background Image */
+        .final-cta-container {
+          width: 100%;
+          max-width: 1240px;
+          margin: 0 auto;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          position: relative;
+        }
+
+        .cta-box-tech {
+          position: relative;
+          width: 100%;
+          border-radius: 24px;
+          overflow: hidden;
+          padding: 70px 32px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Sunset City Background Image */
         .final-cta-bg {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: url('/final-cta-bg.webp');
+          background-image: url('/c9cf009b350522e080e5f1725cf18df6.jpg');
           background-size: cover;
           background-position: center center;
           background-repeat: no-repeat;
           z-index: 1;
         }
 
-        /* Balanced Tint Overlay (Cyber Red) */
+        /* Overlay */
         .final-cta-overlay {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(180deg, rgba(22, 3, 6, 0.55) 0%, rgba(20, 2, 5, 0.75) 100%);
+          background: linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(10, 15, 28, 0.86) 100%);
           z-index: 2;
         }
 
-        .final-cta-container {
-          width: 100%;
-          display: flex;
-          justify-content: center;
+        .cta-content-inner {
           position: relative;
           z-index: 3;
-        }
-
-        .cta-box-tech {
-          background: transparent;
-          border: none;
-          padding: 20px;
+          width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          text-align: center;
-          width: 100%;
-          max-width: 980px;
-          box-shadow: none;
-          position: relative;
         }
 
         .cta-header-center {
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-bottom: 26px;
+          margin-bottom: 28px;
           width: 100%;
         }
 
@@ -279,11 +291,11 @@ export default function FinalCTA({ onPhoneClick }) {
 
         @media (max-width: 768px) {
           .final-cta-section {
-            min-height: auto;
-            padding: 60px 0;
+            padding: 40px 16px 60px;
           }
           .cta-box-tech {
-            padding: 16px;
+            padding: 40px 20px;
+            border-radius: 18px;
           }
           .cta-heading {
             font-size: 22px;

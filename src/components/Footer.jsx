@@ -159,7 +159,7 @@ export default function Footer({ onPhoneClick }) {
         .footer-logo-square {
           height: 38px;
           width: auto;
-          border-radius: 6px;
+          border-radius: 0;
         }
         .footer-brand-title {
           font-family: var(--font-heading);

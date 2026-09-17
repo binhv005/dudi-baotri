@@ -1,9 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import { Phone, ArrowRight, Menu, X, ShieldCheck } from 'lucide-react'
+import React, { useState, useEffect, useRef } from 'react'
+import { Phone, ArrowRight, Menu, X, ChevronDown } from 'lucide-react'
 
 export default function Header({ onPhoneClick, onSelectPlan }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [webMenuOpen, setWebMenuOpen] = useState(false)
+  const [mobileWebMenuOpen, setMobileWebMenuOpen] = useState(false)
+  const closeTimeoutRef = useRef(null)
+
+  const webSystemLinks = [
+    { label: 'Cập nhật', url: 'https://dudi-page.vercel.app/' },
+    { label: 'Đơn giá', url: 'https://dudi-dongia.vercel.app/' },
+    { label: 'Bán hàng', url: 'https://dudi-banhang.vercel.app/' },
+    { label: 'Dịch vụ', url: 'https://dudi-dichvu.vercel.app/' },
+    { label: 'SEO', url: 'https://dudisoftwareseo.vercel.app/' },
+    { label: 'Giới thiệu', url: 'https://dudi-gioithieu.vercel.app/' },
+    { label: 'Tổng hợp', url: 'https://dudi-tonghop.vercel.app/' },
+  ]
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setWebMenuOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setWebMenuOpen(false)
+    }, 200)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +53,7 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
 
   const scrollToSection = (id) => {
     setMobileMenuOpen(false)
+    setWebMenuOpen(false)
     const element = document.getElementById(id)
     if (element) {
       const headerOffset = 80
@@ -45,6 +84,45 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           <button onClick={() => scrollToSection('bang-gia')} className="nav-link">Bảng giá</button>
           <button onClick={() => scrollToSection('quy-trinh')} className="nav-link">Quy trình</button>
           <button onClick={() => scrollToSection('gioi-han')} className="nav-link">Phạm vi</button>
+          
+          {/* Dropdown Menu: Hệ thống web (Trước FAQ) */}
+          <div 
+            className="nav-dropdown-wrapper"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button 
+              type="button"
+              className={`nav-link nav-dropdown-trigger ${webMenuOpen ? 'active' : ''}`}
+              onClick={() => setWebMenuOpen(!webMenuOpen)}
+              aria-haspopup="true"
+              aria-expanded={webMenuOpen}
+            >
+              <span>Hệ thống web</span>
+              <ChevronDown size={14} className={`dropdown-chevron ${webMenuOpen ? 'open' : ''}`} />
+            </button>
+
+            {webMenuOpen && (
+              <div 
+                className="nav-dropdown-menu"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {webSystemLinks.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="dropdown-item"
+                  >
+                    <span>{item.label}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button onClick={() => scrollToSection('faq')} className="nav-link">Hỏi đáp</button>
         </nav>
 
@@ -77,6 +155,35 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           <button onClick={() => scrollToSection('bang-gia')} className="mobile-nav-link">Bảng giá 3 gói</button>
           <button onClick={() => scrollToSection('quy-trinh')} className="mobile-nav-link">Quy trình xử lý sự cố</button>
           <button onClick={() => scrollToSection('gioi-han')} className="mobile-nav-link">Giới hạn & Định nghĩa</button>
+
+          {/* Mobile Hệ thống web Accordion */}
+          <div className="mobile-nav-group">
+            <button 
+              type="button"
+              className="mobile-nav-link mobile-group-trigger"
+              onClick={() => setMobileWebMenuOpen(!mobileWebMenuOpen)}
+            >
+              <span>Hệ thống web</span>
+              <ChevronDown size={16} className={`dropdown-chevron ${mobileWebMenuOpen ? 'open' : ''}`} />
+            </button>
+            {mobileWebMenuOpen && (
+              <div className="mobile-sublinks">
+                {webSystemLinks.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mobile-sublink-item"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button onClick={() => scrollToSection('faq')} className="mobile-nav-link">Câu hỏi thường gặp</button>
           
           <div className="mobile-menu-footer">
@@ -131,6 +238,7 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           height: 44px;
           width: auto;
           object-fit: contain;
+          border-radius: 0;
           transition: transform 0.2s ease;
         }
         .header-logo:hover .logo-img {
@@ -161,12 +269,12 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
         .header-nav {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
         }
         .nav-link {
           background: none;
           border: none;
-          padding: 8px 14px;
+          padding: 8px 12px;
           font-size: 14.5px;
           font-weight: 600;
           color: var(--color-text-main);
@@ -174,10 +282,85 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           border-radius: var(--radius-sm);
           transition: var(--transition);
         }
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
           color: var(--color-primary);
           background: var(--color-primary-tint);
         }
+        
+        /* Dropdown Styles */
+        .nav-dropdown-wrapper {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          padding: 4px 0;
+        }
+        .nav-dropdown-trigger {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .dropdown-chevron {
+          transition: transform 0.2s ease;
+        }
+        .dropdown-chevron.open {
+          transform: rotate(180deg);
+        }
+        .nav-dropdown-menu {
+          position: absolute;
+          top: calc(100% + 2px);
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 175px;
+          background: #FFFFFF;
+          border-radius: 12px;
+          box-shadow: 0 14px 36px rgba(15, 23, 42, 0.15), 0 2px 8px rgba(15, 23, 42, 0.05);
+          border: 1px solid #E2E8F0;
+          padding: 6px 0;
+          z-index: 1050;
+          overflow: hidden;
+          animation: dropFade 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Hover safety bridge: prevents dropdown from closing when moving mouse from trigger to menu */
+        .nav-dropdown-menu::before {
+          content: '';
+          position: absolute;
+          top: -14px;
+          left: -20px;
+          right: -20px;
+          height: 18px;
+          background: transparent;
+        }
+        .dropdown-item {
+          display: block;
+          padding: 10px 18px;
+          font-size: 14.5px;
+          font-weight: 700;
+          color: #0F172A;
+          text-decoration: none;
+          border-bottom: 1px solid #F1F5F9;
+          transition: all 0.18s ease;
+          text-align: left;
+        }
+        .dropdown-item:last-child {
+          border-bottom: none;
+        }
+        .dropdown-item:hover {
+          background: var(--color-primary-tint);
+          color: var(--color-primary);
+          padding-left: 22px;
+        }
+
+        @keyframes dropFade {
+          from {
+            opacity: 0;
+            transform: translate(-50%, -4px);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+        }
+
         .header-actions {
           display: flex;
           align-items: center;
@@ -229,6 +412,8 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           flex-direction: column;
           padding: 16px 24px;
           gap: 6px;
+          max-height: 80vh;
+          overflow-y: auto;
           animation: fadeIn 0.2s ease;
         }
         .mobile-nav-link {
@@ -241,9 +426,39 @@ export default function Header({ onPhoneClick, onSelectPlan }) {
           color: var(--color-text-main);
           border-bottom: 1px solid #F1F5F9;
           cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
         }
         .mobile-nav-link:hover {
           color: var(--color-primary);
+        }
+        .mobile-nav-group {
+          display: flex;
+          flex-direction: column;
+        }
+        .mobile-sublinks {
+          display: flex;
+          flex-direction: column;
+          background: #F8FAFC;
+          border-radius: 8px;
+          padding: 6px 12px;
+          margin: 6px 0 10px 0;
+          gap: 4px;
+        }
+        .mobile-sublink-item {
+          padding: 8px 10px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #334155;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: all 0.15s ease;
+        }
+        .mobile-sublink-item:hover {
+          color: var(--color-primary);
+          background: var(--color-primary-tint);
         }
         .mobile-menu-footer {
           margin-top: 12px;
