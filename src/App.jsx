@@ -162,8 +162,11 @@ export default function App() {
       {/* S13: Footer pháp lý */}
       <Footer onPhoneClick={handlePhoneClick} />
 
-      {/* Floating Action Buttons */}
-      <FloatingActions onPhoneClick={handlePhoneClick} />
+      {/* Floating Action Buttons (Robot Mascot AI, Call, Zalo, Top) */}
+      <FloatingActions 
+        onPhoneClick={handlePhoneClick} 
+        onSelectPlan={handleSelectPlan}
+      />
 
       {/* Toast Notification */}
       <Toast message={toastMessage} />
