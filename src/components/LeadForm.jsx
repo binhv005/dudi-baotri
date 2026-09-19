@@ -108,6 +108,41 @@ export default function LeadForm({ selectedPlan, setSelectedPlan, showToast }) {
 
     setIsSubmitting(true)
 
+    // ⚡ [Firebase Realtime] Gửi trực tiếp về Dashboard Vercel (https://dudi-tonghop.vercel.app/#dashboard)
+    try {
+      const fbLeadId = 'DUDI-' + Math.floor(100000 + Math.random() * 900000);
+      const fbCreatedAt = new Date().toISOString();
+      const fbUrl = 'https://firestore.googleapis.com/v1/projects/dudi-leads/databases/(default)/documents/leads/' + fbLeadId + '?key=AIzaSyBv2l4OH6dtaBqCx5D_rxtDT2HkMPfZ3kA';
+      
+      const fbPayload = {
+        fields: {
+          id: { stringValue: fbLeadId },
+          customerName: { stringValue: formData.appName.trim() || "Khách hàng App Mobile" },
+          phone: { stringValue: formData.phone.trim() || "Chưa cung cấp" },
+          email: { stringValue: "Chưa cung cấp" },
+          company: { stringValue: formData.appName.trim() || "Ứng dụng Di Động" },
+          serviceId: { stringValue: 'dudi-baotri' },
+          serviceName: { stringValue: 'Bảo Trì App Mobile' },
+          budget: { stringValue: formData.plan || "Tiêu chuẩn" },
+          source: { stringValue: 'Website Bảo Trì App Mobile' },
+          sourceUrl: { stringValue: typeof window !== 'undefined' ? window.location.href : '' },
+          status: { stringValue: 'new' },
+          priority: { stringValue: 'high' },
+          createdAt: { stringValue: fbCreatedAt },
+          requirements: { stringValue: "Nền tảng: " + (formData.platforms || []).join(", ") + " | Tech: " + (formData.techStack || "Chưa rõ") + " | Tình trạng: " + (formData.appStatus || []).join(", ") + " | Ghi chú: " + (formData.note || "Không có") }
+        }
+      };
+
+      fetch(fbUrl, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fbPayload)
+      }).catch(err => console.warn('Firebase sync warning:', err));
+    } catch (fbErr) {
+      console.warn('Firebase error:', fbErr);
+    }
+  
+
     // Simulate safe API submission and anti-spam protection
     setTimeout(() => {
       setIsSubmitting(false)
